@@ -13,7 +13,7 @@ class Send {
     /**
      * Send Message.
      */
-    public function send(string $accountKey, string $senderId, int $number, int $route, string $message, string $templateId)
+    public function send( $accountKey, $senderId, $number, $route, $message, $templateId)
     {
         $params = $this->api."?key=$accountKey&route=$route&sender=$senderId&number=$number&sms=".urlencode($message)."&templateid=$templateId";
         return (new CurlRequest)->request($params, $this->method);
